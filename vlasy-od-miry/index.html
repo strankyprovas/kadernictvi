@@ -1,1215 +1,463 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Vlasy od Miry — Kadeřnictví v Nymburk</title>
-  <meta name="description" content="Profesionální střihy a barvy s osobním přístupem." />
-  <meta name="theme-color" content="#faf8f7" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Vlasy od Miry — Kadeřnictví Nymburk | Mirka Petroušková</title>
+<meta name="description" content="Kadeřnictví Vlasy od Miry v Nymburce — stříhání, barvení, melír, olaplex, proměny i léčba vlasů s osobním přístupem. Mirka Petroušková, kadeřnice a vizážistka. Zajedu i k vám domů. Kostomlatská 2187, Nymburk." />
+<meta name="theme-color" content="#161310" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --ink:#1a1612; --ink-soft:#5c534a; --muted:#928577;
+  --cream:#f6f1e9; --cream-2:#efe7da; --paper:#fffdf9;
+  --gold:#b89668; --gold-deep:#a07f53; --gold-soft:#e9ddc9;
+  --line:#e4d9c8;
+  --r:4px; --shadow:0 30px 70px -40px rgba(26,22,18,.4);
+  --shadow-sm:0 16px 40px -26px rgba(26,22,18,.35);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--ink);line-height:1.7;font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,.serif{font-family:'Cormorant Garamond',serif;font-weight:500;line-height:1.05;letter-spacing:.005em}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+.eyebrow{font-family:'Jost';font-weight:500;font-size:.72rem;letter-spacing:.42em;text-transform:uppercase;color:var(--gold-deep)}
+.btn{display:inline-flex;align-items:center;gap:11px;padding:15px 34px;font-family:'Jost';font-weight:400;font-size:.82rem;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;border:none;transition:.4s cubic-bezier(.2,.8,.2,1)}
+.btn-dark{background:var(--ink);color:var(--cream)}
+.btn-dark:hover{background:var(--gold-deep);transform:translateY(-2px)}
+.btn-outline{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+.btn-outline:hover{background:var(--ink);color:var(--cream);transform:translateY(-2px)}
+.btn-gold{background:var(--gold);color:#fff}
+.btn-gold:hover{background:var(--gold-deep);transform:translateY(-2px)}
 
-  <style>
-    /* ============ TOKENS ============ */
-    :root {
-      --blush:       #faf8f7;
-      --blush-2:     #f5ede9;
-      --blush-3:     #ecddd7;
-      --rose-100:    #e8cfc9;
-      --rose-300:    #c9887a;
-      --rose-500:    #b06d5e;
-      --rose-700:    #8c4f40;
-      --ink:         #1e1614;
-      --ink-2:       #33201c;
-      --muted:       #7a5a54;
-      --card:        #fff;
-      --shadow:      0 8px 28px rgba(176, 109, 94, 0.13);
-      --radius:      16px;
-      --space-1:     0.5rem;
-      --space-2:     1rem;
-      --space-3:     1.5rem;
-      --space-4:     2rem;
-      --space-6:     3rem;
-      --space-8:     4rem;
-      --space-12:    6rem;
-    }
+/* NAV */
+header{position:fixed;top:0;left:0;right:0;z-index:60;transition:.4s;padding:14px 0}
+header.scrolled{background:rgba(246,241,233,.9);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line);padding:6px 0}
+.nav{display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Cormorant Garamond';font-size:1.55rem;font-weight:600;letter-spacing:.02em}
+.logo small{display:block;font-family:'Jost';font-size:.56rem;letter-spacing:.5em;font-weight:400;color:var(--muted);text-align:center;margin-top:-2px}
+.nav-links{display:flex;gap:38px}
+.nav-links a{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);transition:color .3s;position:relative}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-5px;width:0;height:1px;background:var(--gold);transition:width .3s}
+.nav-links a:hover{color:var(--ink)}.nav-links a:hover::after{width:100%}
+.nav-r{display:flex;align-items:center;gap:20px}
+.nav-phone{font-size:.85rem;letter-spacing:.05em;font-weight:400}
+.ham{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
+.ham span{width:24px;height:1.5px;background:var(--ink)}
 
-    /* ============ RESET ============ */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      background: var(--blush);
-      color: var(--ink);
-      line-height: 1.6;
-      font-size: 16px;
-    }
-    img { display: block; max-width: 100%; }
-    a { color: inherit; text-decoration: none; }
-    ul { list-style: none; }
+/* HERO */
+.hero{position:relative;min-height:100vh;display:grid;grid-template-columns:1.05fr .95fr;align-items:stretch}
+.hero-l{display:flex;flex-direction:column;justify-content:center;padding:140px 64px 80px 0;position:relative}
+.hero-l .wrap-inner{max-width:560px;margin-left:auto;padding-left:32px}
+.hero .eyebrow{display:block;margin-bottom:26px}
+.hero h1{font-size:clamp(3.4rem,7vw,6rem);font-weight:500;letter-spacing:-.005em}
+.hero h1 em{font-style:italic;color:var(--gold-deep)}
+.hero-sub{font-size:1.08rem;color:var(--ink-soft);margin:30px 0 38px;max-width:44ch;font-weight:300}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap}
+.hero-r{position:relative;overflow:hidden;background:var(--cream-2)}
+.hero-r img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.hero-r::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(26,22,18,.12),transparent 40%)}
+.hero-tag{position:absolute;left:-1px;bottom:48px;background:var(--paper);padding:20px 30px;box-shadow:var(--shadow);z-index:2}
+.hero-tag .serif{font-size:1.5rem;font-style:italic;color:var(--ink)}
+.hero-tag small{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-deep)}
 
-    /* ============ TYPOGRAPHY ============ */
-    h1, h2, h3 {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      line-height: 1.15;
-      color: var(--ink);
-    }
-    h4 {
-      font-family: 'Inter', sans-serif;
-      line-height: 1.3;
-      color: var(--ink);
-    }
-    h1 { font-size: clamp(2.6rem, 6vw, 4.2rem); font-weight: 700; }
-    h2 { font-size: clamp(1.9rem, 4vw, 3rem); font-weight: 600; }
-    h3 { font-size: clamp(1.2rem, 2.2vw, 1.55rem); font-weight: 600; }
-    .section-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.73rem;
-      font-weight: 600;
-      letter-spacing: .13em;
-      text-transform: uppercase;
-      color: var(--rose-500);
-      margin-bottom: var(--space-2);
-    }
-    .section-label::before {
-      content: '';
-      display: block;
-      width: 24px;
-      height: 1.5px;
-      background: var(--rose-300);
-      border-radius: 2px;
-    }
-    .section-desc {
-      color: var(--muted);
-      font-size: 1.05rem;
-      max-width: 560px;
-      margin-top: var(--space-2);
-      line-height: 1.75;
-    }
+/* sekce */
+section{padding:120px 0;position:relative}
+.sh{margin-bottom:60px}
+.sh.center{text-align:center}
+.sh .eyebrow{display:block;margin-bottom:18px}
+.sh h2{font-size:clamp(2.6rem,5vw,4rem);font-weight:500}
+.sh h2 em{font-style:italic;color:var(--gold-deep)}
+.sh p{color:var(--ink-soft);font-size:1.05rem;margin-top:18px;max-width:58ch;font-weight:300}
+.sh.center p{margin-left:auto;margin-right:auto}
 
-    /* ============ LAYOUT ============ */
-    .container { max-width: 1180px; margin: 0 auto; padding: 0 20px; }
-    section { padding: var(--space-12) 0; }
-    .card {
-      background: var(--card);
-      border: 1px solid var(--rose-100);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: var(--space-4);
-    }
-    .grid { display: grid; gap: var(--space-4); }
-    .auto-3 { grid-template-columns: repeat(3, 1fr); }
-    .auto-2 { grid-template-columns: repeat(2, 1fr); }
+/* O MNĚ */
+#omne{background:var(--paper)}
+.omne{display:grid;grid-template-columns:.85fr 1.15fr;gap:70px;align-items:center}
+.omne-img{position:relative}
+.omne-img img{width:100%;aspect-ratio:3/3.7;object-fit:cover;filter:saturate(.95)}
+.omne-img::before{content:"";position:absolute;inset:18px -18px -18px 18px;border:1px solid var(--gold);z-index:-1}
+.omne-txt .lead{font-family:'Cormorant Garamond';font-style:italic;font-size:1.85rem;line-height:1.35;color:var(--ink);margin-bottom:26px}
+.omne-txt p{color:var(--ink-soft);margin-bottom:16px;font-weight:300}
+.omne-sign{margin-top:30px;display:flex;align-items:baseline;gap:14px}
+.omne-sign .nm{font-family:'Cormorant Garamond';font-size:1.6rem;font-style:italic}
+.omne-sign .rl{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-deep)}
 
-    /* ============ BUTTONS ============ */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 13px 28px;
-      border-radius: 50px;
-      font-family: 'Inter', sans-serif;
-      font-weight: 600;
-      font-size: 0.88rem;
-      letter-spacing: .03em;
-      cursor: pointer;
-      border: none;
-      transition: all .22s;
-    }
-    .btn--fill {
-      background: linear-gradient(135deg, var(--rose-700), var(--rose-300));
-      color: #fff;
-      box-shadow: 0 4px 16px rgba(176, 109, 94, 0.35);
-    }
-    .btn--fill:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(176,109,94,.45); }
-    .btn--outline {
-      background: transparent;
-      color: var(--rose-700);
-      border: 1.5px solid var(--rose-300);
-    }
-    .btn--outline:hover { background: var(--blush-2); border-color: var(--rose-500); }
+/* SLUŽBY */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.svc{background:var(--cream);padding:44px 34px;transition:background .4s}
+.svc:hover{background:var(--paper)}
+.svc .ic{width:42px;height:42px;margin-bottom:22px;color:var(--gold-deep)}
+.svc h3{font-size:1.7rem;margin-bottom:12px}
+.svc p{font-size:.95rem;color:var(--ink-soft);font-weight:300}
+.svc-note{margin-top:40px;text-align:center;font-family:'Cormorant Garamond';font-style:italic;font-size:1.5rem;color:var(--ink);background:var(--ink);color:var(--cream);padding:30px;display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
+.svc-note span{color:var(--gold)}
 
-    /* ============ TOP PROGRESS BAR ============ */
-    #progress {
-      position: fixed;
-      top: 0; left: 0;
-      height: 2px;
-      width: 0%;
-      background: linear-gradient(90deg, var(--rose-300), var(--rose-700));
-      z-index: 9999;
-      transition: width .1s linear;
-    }
+/* PROMĚNY */
+#promeny{background:var(--paper)}
+.prom-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.prom-grid.two{grid-template-columns:repeat(2,1fr);max-width:920px;margin:0 auto}
+.prom{position:relative;overflow:hidden;cursor:pointer;background:#eee;aspect-ratio:4/3.1}
+.prom img{width:100%;height:100%;object-fit:cover;transition:transform .7s}
+.prom:hover img{transform:scale(1.05)}
+.prom .pl{position:absolute;top:14px;left:14px;background:rgba(26,22,18,.78);color:var(--cream);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;padding:5px 12px}
+.prom.tall{aspect-ratio:3/4.1}
 
-    /* ============ HEADER / NAV ============ */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(250, 248, 247, 0.93);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid transparent;
-      transition: border-color .3s, box-shadow .3s;
-    }
-    header.scrolled { border-color: var(--rose-100); box-shadow: 0 2px 16px rgba(176,109,94,.09); }
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 68px;
-    }
-    .nav-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 700;
-      font-size: 1.25rem;
-      color: var(--rose-700);
-      letter-spacing: .04em;
-    }
-    .nav-logo span { color: var(--rose-300); }
-    nav ul { display: flex; align-items: center; gap: var(--space-4); }
-    nav a {
-      font-size: 0.85rem;
-      font-weight: 500;
-      letter-spacing: .04em;
-      color: var(--ink-2);
-      transition: color .2s;
-    }
-    nav a:hover { color: var(--rose-500); }
-    .nav-cta { display: flex; align-items: center; gap: var(--space-2); }
-    .nav-phone {
-      font-family: 'Inter', sans-serif;
-      font-weight: 600;
-      font-size: 0.84rem;
-      color: var(--rose-700);
-      padding: 8px 18px;
-      border: 1.5px solid var(--rose-300);
-      border-radius: 50px;
-      transition: all .2s;
-    }
-    .nav-phone:hover { background: var(--rose-300); color: #fff; }
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 8px;
-      background: none;
-      border: none;
-    }
-    .hamburger span {
-      display: block;
-      width: 22px;
-      height: 1.5px;
-      background: var(--ink);
-      border-radius: 2px;
-      transition: all .3s;
-    }
-    .mobile-menu {
-      display: none;
-      flex-direction: column;
-      padding: 16px 20px 20px;
-      border-top: 1px solid var(--rose-100);
-      background: rgba(250, 248, 247, 0.98);
-      gap: 4px;
-    }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a {
-      padding: 10px 12px;
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: var(--ink-2);
-      border-radius: 8px;
-      transition: background .2s;
-    }
-    .mobile-menu a:hover { background: var(--blush-2); }
+/* CERTIFIKÁTY */
+.cert-band{background:var(--ink);color:var(--cream)}
+.cert-band .eyebrow{color:var(--gold)}
+.cert-band h2{color:var(--cream)}
+.cert-band .sh p{color:rgba(246,241,233,.7)}
+.cert-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.cert{background:#fff;padding:10px;cursor:pointer;transition:transform .4s;aspect-ratio:3/4;overflow:hidden}
+.cert:hover{transform:translateY(-5px)}
+.cert img{width:100%;height:100%;object-fit:cover;object-position:top}
+.cert-cap{text-align:center;margin-top:36px;font-family:'Cormorant Garamond';font-style:italic;font-size:1.35rem;color:var(--gold-soft)}
 
-    /* ============ HERO ============ */
-    #hero {
-      padding: var(--space-12) 0 var(--space-8);
-      background: linear-gradient(160deg, var(--blush) 55%, var(--blush-2) 100%);
-    }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: var(--space-8);
-      align-items: center;
-    }
-    .hero-badge {
-      display: inline-block;
-      background: var(--blush-3);
-      color: var(--rose-700);
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      padding: 6px 16px;
-      border-radius: 50px;
-      margin-bottom: var(--space-3);
-    }
-    .hero-title { margin-bottom: var(--space-3); }
-    .hero-title em {
-      font-style: italic;
-      color: var(--rose-500);
-    }
-    .hero-sub {
-      font-size: 1.08rem;
-      color: var(--muted);
-      margin-bottom: var(--space-4);
-      max-width: 460px;
-      line-height: 1.75;
-    }
-    .hero-actions { display: flex; gap: var(--space-2); flex-wrap: wrap; }
-    .hero-rating {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-top: var(--space-4);
-      font-size: 0.88rem;
-      color: var(--muted);
-    }
-    .hero-rating .stars { color: #d4a853; font-size: 1rem; letter-spacing: 2px; }
-    .hero-rating strong { color: var(--ink); }
-    .hero-visual { position: relative; }
-    .visual-stack {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 260px 190px;
-      gap: 12px;
-    }
-    .visual-stack .img-main {
-      grid-column: 1 / -1;
-      grid-row: 1;
-      border-radius: var(--radius);
-      overflow: hidden;
-    }
-    .visual-stack .img-main img,
-    .visual-stack .img-sub img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-    }
-    .visual-stack .img-sub { border-radius: var(--radius); overflow: hidden; }
-    .visual-float {
-      position: absolute;
-      bottom: -16px;
-      left: -20px;
-      background: var(--card);
-      border: 1px solid var(--rose-100);
-      border-radius: var(--radius);
-      padding: 14px 18px;
-      box-shadow: var(--shadow);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.83rem;
-    }
-    .visual-float .dot {
-      width: 9px; height: 9px;
-      border-radius: 50%;
-      background: #6dbf6d;
-      flex-shrink: 0;
-    }
-    .visual-float strong { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.88rem; }
+/* CENÍK */
+#cenik{background:var(--cream-2)}
+.cenik-tbl{background:var(--paper);box-shadow:var(--shadow-sm);overflow:hidden}
+.ct-head{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;background:var(--ink);color:var(--cream);padding:0}
+.ct-head>div{padding:20px 24px;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;font-weight:400}
+.ct-head>div:not(:first-child){text-align:center;color:var(--gold)}
+.ct-row{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;border-bottom:1px solid var(--line);transition:background .3s}
+.ct-row:hover{background:var(--cream)}
+.ct-row:last-child{border-bottom:none}
+.ct-row>div{padding:16px 24px;display:flex;align-items:center}
+.ct-row>div:not(:first-child){justify-content:center;font-family:'Cormorant Garamond';font-size:1.2rem;color:var(--ink)}
+.ct-row .svc-name{font-size:.96rem;font-weight:400}
+.ct-row.sub .svc-name{padding-left:38px;color:var(--ink-soft);font-size:.9rem}
+.ct-row.cat{background:var(--cream)}
+.ct-row.cat .svc-name{font-family:'Cormorant Garamond';font-size:1.3rem;font-weight:500}
+.ct-row .empty{color:var(--line)}
+.cenik-foot{margin-top:24px;font-size:.86rem;color:var(--muted);font-weight:300;line-height:1.9}
+.cenik-foot b{color:var(--ink-soft);font-weight:400}
 
-    /* ============ STATS BAR ============ */
-    #stats {
-      padding: var(--space-6) 0;
-      background: var(--rose-700);
-      color: #fff;
-    }
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: var(--space-4);
-      text-align: center;
-    }
-    .stat-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.8rem;
-      font-weight: 700;
-      color: var(--rose-100);
-      line-height: 1;
-    }
-    .stat-label {
-      font-size: 0.78rem;
-      color: rgba(255,255,255,.65);
-      margin-top: 6px;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-    }
+/* KONTAKT */
+.kont{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.kc{padding:24px 0;border-bottom:1px solid var(--line);display:flex;gap:20px;align-items:flex-start}
+.kc .ki{width:24px;color:var(--gold-deep);flex-shrink:0;margin-top:3px}
+.kc .kl{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.kc .kv{font-size:1.15rem;font-weight:400}
+.kc .kv a{color:var(--ink)}
+.kont-special{background:var(--ink);color:var(--cream);padding:30px 32px;margin-top:24px}
+.kont-special .serif{font-size:1.6rem;font-style:italic;color:var(--gold-soft);margin-bottom:8px}
+.kont-special p{font-size:.95rem;color:rgba(246,241,233,.82);font-weight:300}
+.rez-form{background:var(--paper);padding:42px;box-shadow:var(--shadow-sm)}
+.rez-form h3{font-size:2rem;margin-bottom:6px}
+.rez-form .fsub{color:var(--ink-soft);font-size:.92rem;margin-bottom:8px;font-weight:300}
+.rez-warn{background:var(--gold-soft);color:var(--gold-deep);font-size:.82rem;padding:12px 16px;margin-bottom:22px;font-weight:400}
+.fl{margin-bottom:16px}
+.fl label{display:block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:7px}
+.fl input,.fl textarea{width:100%;padding:13px 16px;border:1px solid var(--line);background:var(--cream);font-family:'Jost';font-weight:300;font-size:.95rem;transition:border-color .3s}
+.fl input:focus,.fl textarea:focus{outline:none;border-color:var(--gold)}
+.fl textarea{resize:vertical;min-height:84px}
+.fl.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fnote{text-align:center;font-size:.78rem;color:var(--muted);margin-top:12px}
 
-    /* ============ O NÁS ============ */
-    #onas { background: var(--blush); }
-    .onas-grid {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: var(--space-8);
-      align-items: center;
-    }
-    .onas-img {
-      border-radius: var(--radius);
-      overflow: hidden;
-      height: 500px;
-      position: relative;
-    }
-    .onas-img img { width: 100%; height: 100%; object-fit: cover; }
-    .onas-img-badge {
-      position: absolute;
-      bottom: 20px;
-      right: 20px;
-      background: var(--card);
-      border: 1px solid var(--rose-100);
-      border-radius: 12px;
-      padding: 12px 16px;
-      box-shadow: var(--shadow);
-      font-size: 0.8rem;
-      text-align: center;
-    }
-    .onas-img-badge strong {
-      display: block;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.4rem;
-      color: var(--rose-700);
-    }
-    .onas-text .section-label { margin-bottom: var(--space-2); }
-    .onas-text h2 { margin-bottom: var(--space-3); }
-    .onas-text p { color: var(--muted); margin-bottom: var(--space-3); line-height: 1.8; }
-    .onas-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: var(--space-3); }
-    .chip {
-      display: inline-block;
-      padding: 6px 14px;
-      background: var(--blush-2);
-      border: 1.5px solid var(--rose-100);
-      border-radius: 50px;
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: var(--rose-700);
-    }
+/* FOOTER */
+footer{background:var(--ink);color:rgba(246,241,233,.6);padding:64px 0 32px}
+.foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(246,241,233,.12)}
+.foot-top .logo{color:var(--cream)}
+.foot-top p{font-size:.9rem;font-weight:300;margin-top:14px;max-width:32ch}
+.foot-col h4{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.foot-col a,.foot-col span{display:block;font-size:.92rem;color:rgba(246,241,233,.7);padding:5px 0;font-weight:300}
+.foot-col a:hover{color:var(--gold)}
+.foot-bot{padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.8rem;color:var(--muted)}
 
-    /* ============ SLUŽBY / CENÍK ============ */
-    #sluzby { background: var(--blush-2); }
-    .sluzby-header { text-align: center; max-width: 560px; margin: 0 auto var(--space-6); }
-    .sluzby-header .section-label { justify-content: center; }
-    .sluzby-header .section-label::before { display: none; }
-    .filter-bar {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: var(--space-6);
-    }
-    .filter-btn {
-      padding: 8px 20px;
-      border-radius: 50px;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.82rem;
-      font-weight: 600;
-      cursor: pointer;
-      border: 1.5px solid var(--rose-100);
-      background: var(--card);
-      color: var(--muted);
-      transition: all .2s;
-    }
-    .filter-btn:hover { border-color: var(--rose-300); color: var(--rose-500); }
-    .filter-btn.active {
-      background: var(--rose-700);
-      border-color: var(--rose-700);
-      color: #fff;
-      box-shadow: 0 4px 14px rgba(140, 79, 64, .28);
-    }
-    .sluzby-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-3); }
-    .sluzba-card {
-      background: var(--card);
-      border: 1px solid var(--rose-100);
-      border-radius: var(--radius);
-      overflow: hidden;
-      transition: transform .22s, box-shadow .22s;
-    }
-    .sluzba-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
-    .sluzba-img { height: 170px; overflow: hidden; }
-    .sluzba-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
-    .sluzba-card:hover .sluzba-img img { transform: scale(1.06); }
-    .sluzba-body { padding: 16px 18px; }
-    .sluzba-tag {
-      display: inline-block;
-      font-size: 0.7rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: .09em;
-      color: var(--rose-500);
-      background: var(--blush-2);
-      padding: 3px 10px;
-      border-radius: 50px;
-      margin-bottom: 8px;
-    }
-    .sluzba-body h3 { font-size: 1rem; margin-bottom: 4px; }
-    .sluzba-body p { font-size: 0.82rem; color: var(--muted); line-height: 1.55; }
-    .sluzba-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 12px 18px;
-      border-top: 1px solid var(--blush-2);
-    }
-    .sluzba-price {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 700;
-      color: var(--rose-700);
-      font-size: 1.15rem;
-    }
-    .sluzba-time {
-      font-size: 0.77rem;
-      color: var(--muted);
-    }
+[data-r]{opacity:0;transform:translateY(30px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
+[data-r].in{opacity:1;transform:none}
+.lb{position:fixed;inset:0;background:rgba(20,16,12,.95);z-index:200;display:none;align-items:center;justify-content:center;padding:30px;cursor:zoom-out}
+.lb.open{display:flex}
+.lb img{max-width:92vw;max-height:88vh;box-shadow:0 30px 80px rgba(0,0,0,.6)}
 
-    /* ============ GALERIE ============ */
-    #galerie { background: var(--blush); overflow: hidden; }
-    .galerie-header { margin-bottom: var(--space-6); }
-    .marquee-wrap { position: relative; }
-    .marquee-track {
-      display: flex;
-      gap: 14px;
-      animation: marquee 34s linear infinite;
-      width: max-content;
-    }
-    .marquee-wrap:hover .marquee-track { animation-play-state: paused; }
-    .marquee-track .gal-img {
-      width: 280px;
-      height: 210px;
-      border-radius: var(--radius);
-      overflow: hidden;
-      flex-shrink: 0;
-    }
-    .marquee-track .gal-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
-    .marquee-track .gal-img:hover img { transform: scale(1.07); }
-    @keyframes marquee {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-    .marquee-fade-l, .marquee-fade-r {
-      position: absolute;
-      top: 0; bottom: 0;
-      width: 100px;
-      z-index: 2;
-      pointer-events: none;
-    }
-    .marquee-fade-l { left: 0; background: linear-gradient(to right, var(--blush), transparent); }
-    .marquee-fade-r { right: 0; background: linear-gradient(to left, var(--blush), transparent); }
-
-    /* ============ RECENZE ============ */
-    #recenze { background: var(--blush-2); }
-    .recenze-header { text-align: center; margin-bottom: var(--space-6); }
-    .recenze-header .section-label { justify-content: center; }
-    .recenze-header .section-label::before { display: none; }
-    .slider { overflow: hidden; }
-    .slider-track {
-      display: flex;
-      transition: transform .5s cubic-bezier(.4,0,.2,1);
-    }
-    .review-slide {
-      min-width: 100%;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-3);
-    }
-    .review-card {
-      background: var(--card);
-      border: 1px solid var(--rose-100);
-      border-radius: var(--radius);
-      padding: var(--space-4);
-    }
-    .review-stars { color: #d4a853; font-size: 1rem; letter-spacing: 2px; margin-bottom: 12px; }
-    .review-text {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.08rem;
-      color: var(--ink-2);
-      line-height: 1.7;
-      font-style: italic;
-      margin-bottom: var(--space-3);
-    }
-    .review-author { font-size: 0.8rem; font-weight: 600; color: var(--muted); letter-spacing: .04em; }
-    .slider-dots { display: flex; justify-content: center; gap: 8px; margin-top: var(--space-4); }
-    .dot-btn {
-      width: 7px; height: 7px;
-      border-radius: 50%;
-      border: none;
-      background: var(--rose-100);
-      cursor: pointer;
-      transition: all .2s;
-    }
-    .dot-btn.active { background: var(--rose-500); width: 20px; border-radius: 4px; }
-
-    /* ============ REZERVACE CTA ============ */
-    #rezervace {
-      background: linear-gradient(135deg, var(--rose-700) 0%, var(--rose-300) 100%);
-      color: #fff;
-      padding: var(--space-12) 0;
-    }
-    .rezervace-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-8);
-      align-items: center;
-    }
-    .rezervace-text .section-label { color: var(--rose-100); }
-    .rezervace-text .section-label::before { background: var(--rose-100); }
-    .rezervace-text h2 { color: #fff; margin-bottom: var(--space-3); }
-    .rezervace-text p { color: rgba(255,255,255,.82); margin-bottom: var(--space-4); font-size: 1.05rem; line-height: 1.75; }
-    .rezervace-text .btn--fill {
-      background: #fff;
-      color: var(--rose-700);
-      box-shadow: 0 4px 16px rgba(0,0,0,.18);
-    }
-    .rezervace-text .btn--fill:hover { background: var(--blush); }
-    .rezervace-text .btn--outline {
-      color: #fff;
-      border-color: rgba(255,255,255,.5);
-    }
-    .rezervace-text .btn--outline:hover { background: rgba(255,255,255,.12); border-color: #fff; }
-    .rezervace-img {
-      border-radius: var(--radius);
-      overflow: hidden;
-      height: 360px;
-      box-shadow: 0 20px 50px rgba(0,0,0,.22);
-    }
-    .rezervace-img img { width: 100%; height: 100%; object-fit: cover; }
-
-    /* ============ KONTAKT ============ */
-    #kontakt { background: var(--blush); }
-    .kontakt-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-8);
-      align-items: start;
-    }
-    .kontakt-info h2 { margin-bottom: var(--space-3); }
-    .kontakt-info p { color: var(--muted); margin-bottom: var(--space-4); }
-    .kontakt-items { display: flex; flex-direction: column; gap: var(--space-3); }
-    .kontakt-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      padding: 16px 18px;
-      background: var(--blush-2);
-      border-radius: var(--radius);
-      border: 1px solid var(--rose-100);
-    }
-    .kontakt-icon {
-      width: 42px; height: 42px;
-      background: linear-gradient(135deg, var(--rose-700), var(--rose-300));
-      border-radius: 11px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      font-size: 1.1rem;
-    }
-    .kontakt-item-text small {
-      font-size: 0.72rem;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      font-weight: 600;
-    }
-    .kontakt-item-text strong { display: block; font-size: 0.95rem; margin-top: 3px; }
-    .kontakt-map {
-      border-radius: var(--radius);
-      overflow: hidden;
-      height: 400px;
-      border: 1px solid var(--rose-100);
-      box-shadow: var(--shadow);
-    }
-    .kontakt-map iframe { width: 100%; height: 100%; border: none; }
-
-    /* ============ FOOTER ============ */
-    footer {
-      background: var(--ink);
-      color: rgba(255,255,255,.7);
-      padding: var(--space-8) 0 var(--space-4);
-    }
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.3fr 1fr 1fr;
-      gap: var(--space-6);
-      margin-bottom: var(--space-6);
-    }
-    .footer-brand .nav-logo { color: var(--rose-100); font-size: 1.1rem; }
-    .footer-brand p { font-size: 0.87rem; line-height: 1.75; margin-top: var(--space-2); }
-    .footer-col h4 {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: #fff;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      margin-bottom: var(--space-2);
-    }
-    .footer-col ul { display: flex; flex-direction: column; gap: 8px; }
-    .footer-col ul a { font-size: 0.87rem; transition: color .2s; }
-    .footer-col ul a:hover { color: var(--rose-100); }
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,.08);
-      padding-top: var(--space-3);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.8rem;
-    }
-    .footer-bottom a { color: var(--rose-100); }
-
-    /* ============ REVEAL ANIMATION ============ */
-    [data-r] {
-      opacity: 0;
-      transform: translateY(22px);
-      transition: opacity .6s ease, transform .6s ease;
-    }
-    [data-r].in { opacity: 1; transform: none; }
-
-    /* ============ RESPONSIVE ============ */
-    @media (max-width: 1000px) {
-      .sluzby-grid { grid-template-columns: repeat(2, 1fr); }
-      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-4) var(--space-6); }
-      .footer-grid { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 900px) {
-      nav ul, .nav-phone { display: none; }
-      .hamburger { display: flex; }
-      .hero-grid, .onas-grid, .rezervace-grid, .kontakt-grid { grid-template-columns: 1fr; }
-      .hero-visual { order: -1; }
-      .visual-stack { grid-template-rows: 210px 155px; }
-      .visual-float { display: none; }
-      .review-slide { grid-template-columns: 1fr; }
-      .footer-grid { grid-template-columns: 1fr; }
-      .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
-    }
-    @media (max-width: 600px) {
-      .sluzby-grid, .auto-3, .auto-2 { grid-template-columns: 1fr; }
-      .stats-grid { grid-template-columns: repeat(2, 1fr); }
-      .onas-img { height: 300px; }
-      .rezervace-img { height: 230px; }
-      .hero-actions { flex-direction: column; }
-      .hero-actions .btn { width: 100%; justify-content: center; }
-      section { padding: var(--space-6) 0; }
-      footer { padding: var(--space-6) 0 var(--space-3); }
-      .kontakt-map { height: 250px; }
-      .stat-num { font-size: 1.8rem; }
-      .card { padding: var(--space-3); }
-    }
-  </style>
+@media(max-width:980px){
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-l{padding:120px 0 60px}.hero-l .wrap-inner{margin:0 auto;padding:0 32px;max-width:680px}
+  .hero-r{height:62vh}
+  .omne,.kont{grid-template-columns:1fr;gap:44px}
+  .svc-grid,.prom-grid{grid-template-columns:1fr 1fr}
+  .cert-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:640px){
+  .nav-links,.nav-phone{display:none}.ham{display:flex}
+  .svc-grid,.prom-grid,.cert-grid{grid-template-columns:1fr}
+  .prom.tall{aspect-ratio:4/3.1}
+  section{padding:80px 0}
+  .ct-head,.ct-row{grid-template-columns:1.4fr 1fr 1fr 1fr;font-size:.8rem}
+  .ct-head>div,.ct-row>div{padding:12px 10px}
+  .ct-row .svc-name{font-size:.84rem}
+  .fl.two{grid-template-columns:1fr}
+  .foot-top{grid-template-columns:1fr;gap:26px}
+  .mobile-menu.open{display:flex}
+}
+.mobile-menu{display:none;flex-direction:column;background:var(--paper);position:fixed;top:54px;left:0;right:0;padding:18px 32px 26px;box-shadow:var(--shadow);z-index:55}
+.mobile-menu a{padding:13px 0;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;border-bottom:1px solid var(--line)}
+</style>
 </head>
 <body>
 
-<!-- Progress bar -->
-<div id="progress"></div>
-
-<!-- ===== HEADER ===== -->
 <header id="header">
-  <div class="container">
-    <div class="nav-inner">
-      <a href="#" class="nav-logo">✂ <span>Vlasy od Miry</span></a>
-      <nav aria-label="Hlavní navigace">
-        <ul>
-          <li><a href="#onas">O nás</a></li>
-          <li><a href="#sluzby">Služby</a></li>
-          <li><a href="#galerie">Galerie</a></li>
-          <li><a href="#recenze">Recenze</a></li>
-          <li><a href="#kontakt">Kontakt</a></li>
-        </ul>
-      </nav>
-      <div class="nav-cta">
-        <a href="tel:+420 734 502 010" class="nav-phone">📞 Zavolat</a>
-        <button class="hamburger" id="hamburgerBtn" aria-label="Otevřít menu" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
+  <div class="wrap nav">
+    <a href="#" class="logo">Vlasy od Miry<small>KADEŘNICTVÍ</small></a>
+    <nav class="nav-links">
+      <a href="#omne">O mně</a><a href="#sluzby">Služby</a><a href="#promeny">Proměny</a>
+      <a href="#cenik">Ceník</a><a href="#kontakt">Kontakt</a>
+    </nav>
+    <div class="nav-r">
+      <span class="nav-phone">734 502 010</span>
+      <a href="#kontakt" class="btn btn-dark">Rezervovat</a>
+      <button class="ham" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
-  <div class="mobile-menu" id="mobileMenu" role="navigation">
-    <a href="#onas">O nás</a>
-    <a href="#sluzby">Služby & ceník</a>
-    <a href="#galerie">Galerie</a>
-    <a href="#recenze">Recenze</a>
-    <a href="#kontakt">Kontakt</a>
-    <a href="tel:+420 734 502 010">📞 +420 734 502 010</a>
+  <div class="mobile-menu" id="mm">
+    <a href="#omne">O mně</a><a href="#sluzby">Služby</a><a href="#promeny">Proměny</a>
+    <a href="#cenik">Ceník</a><a href="#kontakt">Kontakt</a><a href="tel:734502010">📞 734 502 010</a>
   </div>
 </header>
 
-<!-- ===== HERO ===== -->
-<section id="hero">
-  <div class="container">
-    <div class="hero-grid">
-      <div class="hero-text" data-r>
-        <div class="hero-badge">Nymburk · Kadeřnictví</div>
-        <h1 class="hero-title">
-          Profesionální péče o vaše vlasy<br>
-          <em>Vlasy od Miry</em>
-        </h1>
-        <p class="hero-sub">Střihy, barvy a styling od zkušených kadeřníků s vášní pro krásu.</p>
-        <div class="hero-actions">
-          <a href="tel:+420 734 502 010" class="btn btn--fill">📞 Objednat se</a>
-          <a href="#sluzby" class="btn btn--outline">Naše služby ↓</a>
-        </div>
-        <div class="hero-rating">
-          <span class="stars">★★★★★</span>
-          <strong>4.6 / 5</strong>
-          <span>· 134 hodnocení na Google</span>
-        </div>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-l">
+    <div class="wrap-inner">
+      <span class="eyebrow">Kadeřnictví · Nymburk</span>
+      <h1>Objevte svůj<br><em>nový vzhled</em></h1>
+      <p class="hero-sub">Stříhání, barvení, melír i léčba vlasů s osobním přístupem a nejlepšími produkty. Odejdete nejen omlazení, ale i se sebevědomím. Rezervujte si termín ještě dnes.</p>
+      <div class="hero-actions">
+        <a href="#kontakt" class="btn btn-dark">Rezervovat termín</a>
+        <a href="#cenik" class="btn btn-outline">Služby & ceník</a>
       </div>
-      <div class="hero-visual" data-r>
-        <div class="visual-stack">
-          <div class="img-main">
-            <img src="../stock_photos/photo_1.jpg" alt="Vlasy od Miry – kadeřnictví" loading="lazy" />
-          </div>
-          <div class="img-sub">
-            <img src="../stock_photos/photo_2.jpg" alt="Vlasy od Miry – interiér" loading="lazy" />
-          </div>
-          <div class="img-sub">
-            <img src="../stock_photos/photo_1.jpg" alt="Vlasy od Miry – výsledky" loading="lazy" style="filter: brightness(.93) saturate(1.1);" />
-          </div>
-        </div>
-        <div class="visual-float">
-          <span class="dot"></span>
-          <div>
-            <strong>Přijímáme rezervace</strong><br>
-            <span style="font-size:.78rem;color:var(--muted)">Nymburk</span>
-          </div>
-        </div>
+    </div>
+  </div>
+  <div class="hero-r">
+    <img src="img/mira-prace.jpg" alt="Mirka Petroušková při práci — Vlasy od Miry, Nymburk" style="object-position:center 20%" />
+    <div class="hero-tag">
+      <small>Kadeřnictví Nymburk</small>
+      <div class="serif">Kadeřnice & vizážistka</div>
+    </div>
+  </div>
+</section>
+
+<!-- O MNĚ -->
+<section id="omne">
+  <div class="wrap omne">
+    <div class="omne-img" data-r><img src="img/mira-prace.jpg" alt="Mirka Petroušková při práci" /></div>
+    <div class="omne-txt" data-r>
+      <span class="eyebrow">O mně</span>
+      <h2 style="font-size:clamp(2.2rem,4vw,3.2rem);margin:14px 0 24px">Práce, která je<br>zároveň <em>můj koníček</em></h2>
+      <p class="lead">„To, jak se na sebe první zákaznice po proměně podívala do zrcadla, byl tak úžasný pocit, že se nedá popsat."</p>
+      <p>Pracuji v podstatě od prváku. Vždy jsem věděla, čím chci být — při nástupu mě ředitelka přesvědčovala na hotelovku, ale já věděla jistě, co chci. A ten pocit u první proměny mě přesvědčil, že jsem na správné cestě.</p>
+      <p>Má práce mě naplňuje a mám opravdu štěstí, že je zároveň i mým koníčkem. Neustále se zdokonaluji, jezdím na školení a zkouším nové přípravky, ať vím, co Vám mohu doporučit. Nejvíc mě baví proměny a léčba vlasů i pokožky.</p>
+      <div class="omne-sign">
+        <span class="nm">Mirka Petroušková</span>
+        <span class="rl">Kadeřnice · Vizážistka</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== STATS ===== -->
-<section id="stats">
-  <div class="container">
-    <div class="stats-grid">
-      <div data-r>
-        <div class="stat-num" data-count="134">0</div>
-        <div class="stat-label">Spokojených zákaznic</div>
-      </div>
-      <div data-r>
-        <div class="stat-num" data-count="4.6" data-decimal>0</div>
-        <div class="stat-label">Hvězd na Google</div>
-      </div>
-      <div data-r>
-        <div class="stat-num" data-count="10">0</div>
-        <div class="stat-label">Let zkušeností</div>
-      </div>
-      <div data-r>
-        <div class="stat-num" data-count="6">0</div>
-        <div class="stat-label">Dní v týdnu</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== O NÁS ===== -->
-<section id="onas">
-  <div class="container">
-    <div class="onas-grid">
-      <div class="onas-img" data-r>
-        <img src="../stock_photos/photo_2.jpg" alt="Vlasy od Miry" loading="lazy" />
-        <div class="onas-img-badge">
-          <strong>10+</strong>
-          let v oboru
-        </div>
-      </div>
-      <div class="onas-text" data-r>
-        <div class="section-label">O nás</div>
-        <h2>Váš oblíbený salon v Nymburk</h2>
-        <p>Naše kadeřnictví vzniklo z lásky ke kráse a transformaci. Věříme, že správný střih a barva dokáže proměnit nejen vzhled, ale i náladu. Přijďte se přesvědčit!</p>
-        <p class="section-desc">Profesionální střihy a barvy s osobním přístupem.</p>
-        <div class="onas-chips">
-          <span class="chip">✂ Profesionální střih</span>
-          <span class="chip">🎨 Barvení vlasů</span>
-          <span class="chip">💅 Péče o vlasy</span>
-          <span class="chip">📍 Nymburk</span>
-        </div>
-        <div style="margin-top:2rem;">
-          <a href="tel:+420 734 502 010" class="btn btn--fill">Objednat se</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== SLUŽBY / CENÍK ===== -->
+<!-- SLUŽBY -->
 <section id="sluzby">
-  <div class="container">
-    <div class="sluzby-header" data-r>
-      <div class="section-label">Služby & ceník</div>
-      <h2>Co u nás nabízíme</h2>
-      <p class="section-desc">Vše pro vaše vlasy na jednom místě – od klasického střihu až po komplexní proměnu.</p>
+  <div class="wrap">
+    <div class="sh center" data-r>
+      <span class="eyebrow">Co nabízím</span>
+      <h2>Služby <em>na míru vašim vlasům</em></h2>
+      <p>Široká škála služeb od stříhání a barvení po hloubkovou péči — vždy s osobním přístupem a profesionálními produkty.</p>
     </div>
-    <div class="filter-bar" data-r>
-      <button class="filter-btn active" data-filter="all">Vše</button>
-      <button class="filter-btn" data-filter="strih">✂ Střihy</button>
-      <button class="filter-btn" data-filter="barva">🎨 Barvení</button>
-      <button class="filter-btn" data-filter="styling">💇 Styling</button>
-      <button class="filter-btn" data-filter="pece">✨ Péče</button>
+    <div class="svc-grid">
+      <div class="svc" data-r>
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.12 15.88M14.47 14.48 20 20M8.12 8.12 12 12"/></svg>
+        <h3>Střih & foukaná</h3>
+        <p>Dámské střihy pro krátké, polodlouhé i dlouhé vlasy, foukaná a styling, které sednou přesně vám.</p>
+      </div>
+      <div class="svc" data-r>
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M19 11a7 7 0 1 0-7 7"/><path d="M12 11 19 4"/><circle cx="12" cy="11" r="2"/></svg>
+        <h3>Barvení & melír</h3>
+        <p>Barva, přeliv, melír, nový melír i freehand technika. Včetně Olaplexu pro zdraví vlasů během barvení.</p>
+      </div>
+      <div class="svc" data-r>
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 2v6M12 22v-6M4.9 4.9 9 9M19.1 19.1 15 15M2 12h6M22 12h-6M4.9 19.1 9 15M19.1 4.9 15 9"/></svg>
+        <h3>Léčba & péče</h3>
+        <p>Olaplex, čištění, hloubkové masky a regenerace pokožky — to, co mě baví nejvíc. Vlasy, které září zdravím.</p>
+      </div>
+      <div class="svc" data-r>
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 3a9 9 0 1 0 9 9c0-1-3 1-5-1s0-5-1-6-2 4-3 4-2-1 1-0z"/></svg>
+        <h3>Glow gel & proužky</h3>
+        <p>Třpytivý glow gel i barevné proužky dle náročnosti — pro hravý, výrazný a osobitý výsledek.</p>
+      </div>
+      <div class="svc" data-r>
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 2a4 4 0 0 1 4 4c0 3-4 6-4 6s-4-3-4-6a4 4 0 0 1 4-4zM6 14c-2 2-2 6-2 6h16s0-4-2-6"/></svg>
+        <h3>Společenské účesy</h3>
+        <p>Slavnostní účesy na svatby, plesy i zvláštní příležitosti — od jednoduchých po náročné, dle vašeho přání.</p>
+      </div>
+      <div class="svc" data-r>
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 12 12 4l9 8M5 10v10h14V10M9 20v-6h6v6"/></svg>
+        <h3>Dojedu k vám domů</h3>
+        <p>Nemůžete přijít osobně? Nemusíte smutnit — po domluvě s radostí dorazím přímo k vám domů.</p>
+      </div>
     </div>
-    <div class="sluzby-grid" id="sluzbyGrid">
+    <div class="svc-note" data-r>Pravidelné klientky mají <span>&nbsp;výhody&nbsp;</span> — občasné čištění, masku a další péči navíc.</div>
+  </div>
+</section>
 
-      <div class="sluzba-card" data-cat="strih" data-r>
-        <div class="sluzba-img"><img src="../stock_photos/photo_1.jpg" alt="Střih ženy" loading="lazy" /></div>
-        <div class="sluzba-body">
-          <span class="sluzba-tag">Střih</span>
-          <h3>Střih a foukání</h3>
-          <p>Klasický nebo moderní střih dle přání klientky, s mytím a profesionálním foukáním.</p>
-        </div>
-        <div class="sluzba-footer">
-          <span class="sluzba-price">od 350 Kč</span>
-          <span class="sluzba-time">⏱ 60 min</span>
-        </div>
-      </div>
-
-      <div class="sluzba-card" data-cat="strih" data-r>
-        <div class="sluzba-img"><img src="../stock_photos/photo_2.jpg" alt="Pánský střih" loading="lazy" /></div>
-        <div class="sluzba-body">
-          <span class="sluzba-tag">Střih</span>
-          <h3>Pánský střih</h3>
-          <p>Přesný a moderní pánský střih přizpůsobený tvaru hlavy a životnímu stylu.</p>
-        </div>
-        <div class="sluzba-footer">
-          <span class="sluzba-price">od 250 Kč</span>
-          <span class="sluzba-time">⏱ 45 min</span>
-        </div>
-      </div>
-
-      <div class="sluzba-card" data-cat="barva" data-r>
-        <div class="sluzba-img"><img src="../stock_photos/photo_1.jpg" alt="Barvení vlasů" loading="lazy" /></div>
-        <div class="sluzba-body">
-          <span class="sluzba-tag">Barvení</span>
-          <h3>Jednobarvení</h3>
-          <p>Celobarvení vlasů v libovolném odstínu – s důrazem na zdraví vašich vlasů.</p>
-        </div>
-        <div class="sluzba-footer">
-          <span class="sluzba-price">od 600 Kč</span>
-          <span class="sluzba-time">⏱ 90 min</span>
-        </div>
-      </div>
-
-      <div class="sluzba-card" data-cat="barva" data-r>
-        <div class="sluzba-img"><img src="../stock_photos/photo_2.jpg" alt="Melír a balayage" loading="lazy" /></div>
-        <div class="sluzba-body">
-          <span class="sluzba-tag">Barvení</span>
-          <h3>Balayage & melír</h3>
-          <p>Přirozené přechody barev pro efekt opálených vlasů – technika balayage nebo klasický melír.</p>
-        </div>
-        <div class="sluzba-footer">
-          <span class="sluzba-price">od 900 Kč</span>
-          <span class="sluzba-time">⏱ 2–3 hod</span>
-        </div>
-      </div>
-
-      <div class="sluzba-card" data-cat="styling" data-r>
-        <div class="sluzba-img"><img src="../stock_photos/photo_1.jpg" alt="Slavnostní účes" loading="lazy" /></div>
-        <div class="sluzba-body">
-          <span class="sluzba-tag">Styling</span>
-          <h3>Slavnostní účes</h3>
-          <p>Dokonalý účes pro svatbu, ples nebo jiný výjimečný den – s konzultací.</p>
-        </div>
-        <div class="sluzba-footer">
-          <span class="sluzba-price">od 800 Kč</span>
-          <span class="sluzba-time">⏱ 60–90 min</span>
-        </div>
-      </div>
-
-      <div class="sluzba-card" data-cat="pece" data-r>
-        <div class="sluzba-img"><img src="../stock_photos/photo_2.jpg" alt="Keratin a ošetření" loading="lazy" /></div>
-        <div class="sluzba-body">
-          <span class="sluzba-tag">Péče</span>
-          <h3>Keratinová kúra</h3>
-          <p>Hloubková regenerace poškozených vlasů – keratinové ošetření pro lesk a hebkost.</p>
-        </div>
-        <div class="sluzba-footer">
-          <span class="sluzba-price">od 700 Kč</span>
-          <span class="sluzba-time">⏱ 45 min</span>
-        </div>
-      </div>
-
+<!-- PROMĚNY -->
+<section id="promeny">
+  <div class="wrap">
+    <div class="sh center" data-r>
+      <span class="eyebrow">Galerie</span>
+      <h2>Proměny, které <em>mluví za vše</em></h2>
+      <p>Skutečné výsledky z mého kadeřnictví — od záchrany poškozených vlasů po zářivé melíry.</p>
+    </div>
+    <div class="prom-grid two" data-r>
+      <figure class="prom"><span class="pl">Před / Po</span><img src="img/promena-1.jpg" alt="Proměna vlasů — melír a olaplex" /></figure>
+      <figure class="prom"><span class="pl">Před / Po</span><img src="img/promena-2.jpg" alt="Proměna vlasů" /></figure>
+      <figure class="prom"><span class="pl">Před / Po</span><img src="img/promena-3.jpg" alt="Proměna vlasů" /></figure>
+      <figure class="prom"><span class="pl">Před / Po</span><img src="img/promena-4.jpg" alt="Proměna vlasů" /></figure>
     </div>
   </div>
 </section>
 
-<!-- ===== GALERIE ===== -->
-<section id="galerie">
-  <div class="container">
-    <div class="galerie-header" data-r>
-      <div class="section-label">Galerie</div>
-      <h2>Naše práce mluví za vše</h2>
+<!-- CERTIFIKÁTY -->
+<section class="cert-band">
+  <div class="wrap">
+    <div class="sh center" data-r>
+      <span class="eyebrow">Neustále se zdokonaluji</span>
+      <h2>Vzdělání & <em>certifikáty</em></h2>
+      <p>Jezdím na školení a zkouším nové techniky i přípravky — ať vím, co Vám mohu s klidným svědomím doporučit.</p>
     </div>
-  </div>
-  <div class="marquee-wrap">
-    <div class="marquee-track" id="marqueeTrack">
-      <!-- JS doplní fotky -->
+    <div class="cert-grid" data-r>
+      <figure class="cert"><img src="img/cert-vizazista.jpg" alt="Diplom — Make up artist & vizážistka" /></figure>
+      <figure class="cert"><img src="img/cert-freehand.jpg" alt="Certifikát — Freehand technika" /></figure>
+      <figure class="cert"><img src="img/cert-filandr.jpg" alt="Certifikát — Filandr Academy" /></figure>
+      <figure class="cert"><img src="img/cert-color.jpg" alt="Certifikát — Color painting" /></figure>
+      <figure class="cert"><img src="img/cert-salon.jpg" alt="Certifikát — Salon Economy" /></figure>
+      <figure class="cert"><img src="img/ucies-blond.jpg" alt="Certifikát — Bomton" /></figure>
     </div>
-    <div class="marquee-fade-l"></div>
-    <div class="marquee-fade-r"></div>
+    <div class="cert-cap">Make up artist & vizážistka · Freehand · Color painting · a&nbsp;další</div>
   </div>
 </section>
 
-<!-- ===== RECENZE ===== -->
-<section id="recenze">
-  <div class="container">
-    <div class="recenze-header" data-r>
-      <div class="section-label">Recenze</div>
-      <h2>Co říkají naše zákaznice</h2>
-      <p class="section-desc" style="margin: 0.5rem auto 0;">Hodnocení 4.6 / 5 na základě 134 recenzí na Google.</p>
+<!-- CENÍK -->
+<section id="cenik">
+  <div class="wrap">
+    <div class="sh center" data-r>
+      <span class="eyebrow">Služby & ceník</span>
+      <h2>Ceník <em>úkonů</em></h2>
+      <p>Ceník je orientační — konečná cena se může lišit dle náročnosti a hustoty vlasů.</p>
     </div>
-    <div class="slider" data-r>
-      <div class="slider-track" id="sliderTrack">
-        <div class="review-slide">
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-text">„Naprosto skvělé kadeřnictví! Výsledek přesně dle přání, příjemná atmosféra a milý personál. Vracím se sem pravidelně."</p>
-            <div class="review-author">— Jana K. · Google</div>
-          </div>
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-text">„Konečně kadeřnice, která ví, co dělá. Balayage vyšel perfektně a vlasy vypadají přirozeně krásně. Vřele doporučuji!"</p>
-            <div class="review-author">— Markéta S. · Google</div>
-          </div>
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-text">„Přišla jsem na slavnostní účes před plesem a byla jsem nadšená. Precizní práce, příjemné prostředí, rozhodně se vrátím."</p>
-            <div class="review-author">— Tereza N. · Google</div>
-          </div>
-        </div>
-        <div class="review-slide">
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-text">„Skvělý střih, přesně jak jsem chtěla. Kadeřnice mi poradila s tvarem a výsledek je fantastický. Moc děkuji!"</p>
-            <div class="review-author">— Petra V. · Google</div>
-          </div>
-          <div class="review-card">
-            <div class="review-stars">★★★★☆</div>
-            <p class="review-text">„Příjemné a čisté prostředí, profesionální přístup. Keratinová kúra provedena skvěle, vlasy jsou nyní hedvábně hladké."</p>
-            <div class="review-author">— Lucie M. · Google</div>
-          </div>
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-text">„Chodím sem roky a nikdy jsem nebyla zklamaná. Vždy milý přístup a perfektní výsledek. Toto kadeřnictví je skvělé!"</p>
-            <div class="review-author">— Kateřina B. · Google</div>
-          </div>
-        </div>
-      </div>
+    <div class="cenik-tbl" data-r>
+      <div class="ct-head"><div>Úkon</div><div>Krátký</div><div>Polodlouhý</div><div>Dlouhý</div></div>
+      <div class="ct-row"><div class="svc-name">Foukaná</div><div>380 Kč</div><div>570 Kč</div><div>665 Kč</div></div>
+      <div class="ct-row"><div class="svc-name">Střih</div><div>525 Kč</div><div>675 Kč</div><div>855 Kč</div></div>
+      <div class="ct-row cat"><div class="svc-name">Barva / Přeliv</div><div class="empty">—</div><div class="empty">—</div><div class="empty">—</div></div>
+      <div class="ct-row sub"><div class="svc-name">Odrost</div><div>810 Kč</div><div>1 350 Kč</div><div>1 620 Kč</div></div>
+      <div class="ct-row sub"><div class="svc-name">Odrost + délky</div><div class="empty">—</div><div>1 620 Kč</div><div>1 980 Kč</div></div>
+      <div class="ct-row cat"><div class="svc-name">Melír odrost</div><div class="empty">—</div><div class="empty">—</div><div class="empty">—</div></div>
+      <div class="ct-row sub"><div class="svc-name">Klobouková část</div><div class="empty">—</div><div>1 620 Kč</div><div>1 890 Kč</div></div>
+      <div class="ct-row sub"><div class="svc-name">Celá hlava</div><div class="empty">—</div><div>2 160 Kč</div><div>2 700 Kč</div></div>
+      <div class="ct-row cat"><div class="svc-name">Nový melír</div><div class="empty">—</div><div class="empty">—</div><div class="empty">—</div></div>
+      <div class="ct-row sub"><div class="svc-name">Klobouková část</div><div class="empty">—</div><div>2 160 Kč</div><div>2 880 Kč</div></div>
+      <div class="ct-row sub"><div class="svc-name">Celá hlava</div><div class="empty">—</div><div>2 700 Kč</div><div>3 240 Kč</div></div>
+      <div class="ct-row"><div class="svc-name">Olaplex</div><div class="empty">—</div><div>500 Kč</div><div>700 Kč</div></div>
+      <div class="ct-row"><div class="svc-name">Glow gel</div><div>od 250 Kč</div><div>od 250 Kč</div><div>od 250 Kč</div></div>
+      <div class="ct-row"><div class="svc-name">Čištění</div><div class="empty">—</div><div>570 Kč</div><div>640 Kč</div></div>
+      <div class="ct-row"><div class="svc-name">Maska</div><div class="empty">—</div><div>200 Kč</div><div>300 Kč</div></div>
+      <div class="ct-row"><div class="svc-name">Trvalá (vč. mytí + střihu)</div><div class="empty">—</div><div>1 475 Kč</div><div>1 855 Kč</div></div>
+      <div class="ct-row"><div class="svc-name">Freehand technika</div><div class="empty">—</div><div>od 1 620 Kč</div><div>od 1 860 Kč</div></div>
+      <div class="ct-row"><div class="svc-name">Barevné proužky (dle náročnosti)</div><div>od 500 Kč</div><div>od 500 Kč</div><div>od 500 Kč</div></div>
+      <div class="ct-row"><div class="svc-name">Společenský účes</div><div>850 Kč</div><div>1 150 Kč</div><div>od 1 400 Kč</div></div>
     </div>
-    <div class="slider-dots" id="sliderDots">
-      <button class="dot-btn active" data-idx="0" aria-label="Slide 1"></button>
-      <button class="dot-btn" data-idx="1" aria-label="Slide 2"></button>
+    <div class="cenik-foot">
+      <b>*</b> Cena za čištění a masku se přičítá k jednotlivým úkonům. &nbsp;·&nbsp;
+      <b>*</b> Klientky, které chodí pravidelně, mají výhody (občasné čištění, maska atd.). &nbsp;·&nbsp;
+      <b>*</b> Cena se může lišit dle náročnosti a hustoty vlasů.
     </div>
   </div>
 </section>
 
-<!-- ===== REZERVACE CTA ===== -->
-<section id="rezervace">
-  <div class="container">
-    <div class="rezervace-grid">
-      <div class="rezervace-text" data-r>
-        <div class="section-label">Rezervace</div>
-        <h2>Zarezervujte si termín ještě dnes</h2>
-        <p>Rádi vás uvítáme. Stačí zavolat nebo napsat – a my se postaráme o zbytek. Přijďte si pro svůj nový look.</p>
-        <div style="display:flex;gap:1rem;flex-wrap:wrap;">
-          <a href="tel:+420 734 502 010" class="btn btn--fill">📞 Zavolat nyní</a>
-          <a href="#kontakt" class="btn btn--outline">Kde nás najdete</a>
+<!-- KONTAKT -->
+<section id="kontakt" style="background:var(--paper)">
+  <div class="wrap">
+    <div class="sh" data-r>
+      <span class="eyebrow">Rezervace & kontakt</span>
+      <h2>Rezervujte si <em>termín</em></h2>
+      <p>Preferuji rezervaci telefonicky, ale klidně využijte i formulář — ozvu se vám s potvrzením termínu.</p>
+    </div>
+    <div class="kont">
+      <div data-r>
+        <div class="kc"><svg class="ki" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><div><div class="kl">Telefon</div><div class="kv"><a href="tel:734502010">734 502 010</a></div></div></div>
+        <div class="kc"><svg class="ki" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><div><div class="kl">Adresa</div><div class="kv">Kostomlatská 2187<br><span style="font-size:.95rem;color:var(--ink-soft)">288 02 Nymburk</span></div></div></div>
+        <div class="kc"><svg class="ki" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="4" width="20" height="16" rx="1"/><path d="m22 6-10 6L2 6"/></svg><div><div class="kl">E-mail</div><div class="kv"><a href="mailto:info@vlasyodmiry.cz">info@vlasyodmiry.cz</a></div></div></div>
+        <div class="kc"><svg class="ki" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><div><div class="kl">Otevírací doba</div><div class="kv">Pondělí – Sobota <span style="font-size:.9rem;color:var(--ink-soft)">dle dohody</span><br><span style="font-size:.95rem;color:var(--muted)">Neděle zavřeno</span></div></div></div>
+        <div class="kont-special">
+          <div class="serif">Dojedu i k vám domů</div>
+          <p>Zákaznice, které nemohou přijít osobně, nemusí smutnit — stačí se domluvit a já s radostí dorazím až k vám.</p>
         </div>
       </div>
-      <div class="rezervace-img" data-r>
-        <img src="../stock_photos/photo_1.jpg" alt="Rezervace termínu – Vlasy od Miry" loading="lazy" />
-      </div>
+      <form class="rez-form" data-r onsubmit="event.preventDefault();this.querySelector('.fnote').textContent='Toto je ukázka — na ostrém webu se rezervace odešle Miře.';">
+        <h3>Rezervační formulář</h3>
+        <p class="fsub">Po odeslání vyčkejte prosím na potvrzení termínu — ozvu se vám telefonem nebo zprávou.</p>
+        <div class="rez-warn">! Termín je platný až po mém potvrzení. Děkuji za pochopení.</div>
+        <div class="fl two">
+          <div><label>Jméno</label><input type="text" required placeholder="Jméno" /></div>
+          <div><label>Příjmení</label><input type="text" required placeholder="Příjmení" /></div>
+        </div>
+        <div class="fl two">
+          <div><label>Datum a čas</label><input type="text" placeholder="např. 12. 6. dopoledne" /></div>
+          <div><label>Telefon</label><input type="tel" required placeholder="+420…" /></div>
+        </div>
+        <div class="fl"><label>Poznámky</label><textarea placeholder="Jaký úkon máte zájem?"></textarea></div>
+        <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center">Odeslat rezervaci</button>
+        <div class="fnote"></div>
+      </form>
     </div>
   </div>
 </section>
 
-<!-- ===== KONTAKT ===== -->
-<section id="kontakt">
-  <div class="container">
-    <div class="kontakt-grid">
-      <div class="kontakt-info" data-r>
-        <div class="section-label">Kontakt</div>
-        <h2>Najdete nás v Nymburk</h2>
-        <p>Rádi vás uvítáme. Objednejte se telefonicky nebo nás navštivte osobně.</p>
-        <div class="kontakt-items">
-          <div class="kontakt-item">
-            <div class="kontakt-icon">📍</div>
-            <div class="kontakt-item-text">
-              <small>Adresa</small>
-              <strong>Kostomlatská 2187</strong>
-            </div>
-          </div>
-          <div class="kontakt-item">
-            <div class="kontakt-icon">📞</div>
-            <div class="kontakt-item-text">
-              <small>Telefon</small>
-              <strong><a href="tel:+420 734 502 010">+420 734 502 010</a></strong>
-            </div>
-          </div>
-          <div class="kontakt-item">
-            <div class="kontakt-icon">✉️</div>
-            <div class="kontakt-item-text">
-              <small>Email</small>
-              <strong><a href="mailto:info@vlasyodmiry.cz">info@vlasyodmiry.cz</a></strong>
-            </div>
-          </div>
-          <div class="kontakt-item">
-            <div class="kontakt-icon">🕐</div>
-            <div class="kontakt-item-text">
-              <small>Otevírací doba</small>
-              <strong>Po–Pá 9:00–18:00 · So 9:00–14:00</strong>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="kontakt-map" data-r>
-        <iframe
-          src="https://maps.google.com/maps?q=Kostomlatsk%C3%A1+2187%2C+Nymburk&output=embed"
-          allowfullscreen="" loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title="Mapa Vlasy od Miry"
-        ></iframe>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== FOOTER ===== -->
 <footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="nav-logo">✂ <span>Vlasy od Miry</span></div>
-        <p>Profesionální střihy a barvy s osobním přístupem.<br>Kostomlatská 2187</p>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <div class="logo">Vlasy od Miry<small>KADEŘNICTVÍ</small></div>
+        <p>Kadeřnictví v Nymburce — proměny, barvení a péče o vlasy s osobním přístupem.</p>
       </div>
-      <div class="footer-col">
+      <div class="foot-col">
         <h4>Navigace</h4>
-        <ul>
-          <li><a href="#onas">O nás</a></li>
-          <li><a href="#sluzby">Služby & ceník</a></li>
-          <li><a href="#galerie">Galerie</a></li>
-          <li><a href="#recenze">Recenze</a></li>
-          <li><a href="#kontakt">Kontakt</a></li>
-        </ul>
+        <a href="#omne">O mně</a><a href="#sluzby">Služby</a><a href="#promeny">Proměny</a>
+        <a href="#cenik">Ceník</a><a href="#kontakt">Rezervace</a>
       </div>
-      <div class="footer-col">
+      <div class="foot-col">
         <h4>Kontakt</h4>
-        <ul>
-          <li><a href="tel:+420 734 502 010">+420 734 502 010</a></li>
-          <li><a href="mailto:info@vlasyodmiry.cz">info@vlasyodmiry.cz</a></li>
-          <li>Kostomlatská 2187</li>
-        </ul>
+        <a href="tel:734502010">734 502 010</a>
+        <a href="mailto:info@vlasyodmiry.cz">info@vlasyodmiry.cz</a>
+        <span>Kostomlatská 2187, Nymburk</span>
+        <span>IČO: 71760512</span>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span>© 2026 Vlasy od Miry · Všechna práva vyhrazena</span>
-      <span>Web od <a href="https://strankyprovas.cz">StránkyProVás</a></span>
+    <div class="foot-bot">
+      <span>© 2026 Vlasy od Miry · Mirka Petroušková</span>
+      <span>Po–So dle dohody · Ne zavřeno</span>
     </div>
   </div>
 </footer>
 
-<!-- ===== JAVASCRIPT ===== -->
+<div class="lb" id="lb"><img src="" alt="" /></div>
+
 <script>
-  /* --- Progress bar --- */
-  window.addEventListener('scroll', () => {
-    const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-    document.getElementById('progress').style.width = pct + '%';
-  });
-
-  /* --- Sticky header shadow --- */
-  const header = document.getElementById('header');
-  window.addEventListener('scroll', () => {
-    header.classList.toggle('scrolled', window.scrollY > 10);
-  });
-
-  /* --- Hamburger --- */
-  const btn = document.getElementById('hamburgerBtn');
-  const menu = document.getElementById('mobileMenu');
-  btn.addEventListener('click', () => {
-    const open = menu.classList.toggle('open');
-    btn.setAttribute('aria-expanded', open);
-  });
-  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    menu.classList.remove('open');
-    btn.setAttribute('aria-expanded', false);
-  }));
-
-  /* --- Reveal on scroll --- */
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); } });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('[data-r]').forEach(el => observer.observe(el));
-
-  /* --- Stats counter --- */
-  const statsObs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      const el = e.target;
-      const target = parseFloat(el.dataset.count);
-      const isDecimal = 'decimal' in el.dataset;
-      const duration = 1400;
-      const step = 16;
-      const steps = duration / step;
-      let current = 0;
-      const inc = target / steps;
-      const timer = setInterval(() => {
-        current = Math.min(current + inc, target);
-        el.textContent = isDecimal ? current.toFixed(1) : Math.floor(current);
-        if (current >= target) clearInterval(timer);
-      }, step);
-      statsObs.unobserve(el);
-    });
-  }, { threshold: 0.5 });
-  document.querySelectorAll('[data-count]').forEach(el => statsObs.observe(el));
-
-  /* --- Ceník filtr --- */
-  document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const filter = btn.dataset.filter;
-      document.querySelectorAll('.sluzba-card').forEach(card => {
-        const match = filter === 'all' || card.dataset.cat === filter;
-        card.style.display = match ? '' : 'none';
-      });
-    });
-  });
-
-  /* --- Galerie marquee --- */
-  const photos = ['../stock_photos/photo_1.jpg','../stock_photos/photo_2.jpg','../stock_photos/photo_3.jpg','../stock_photos/photo_4.jpg','../stock_photos/photo_5.jpg'];
-  const track = document.getElementById('marqueeTrack');
-  if (photos.length > 0 && photos[0]) {
-    const doubled = [...photos, ...photos];
-    doubled.forEach(src => {
-      const div = document.createElement('div');
-      div.className = 'gal-img';
-      div.innerHTML = `<img src="${src}" alt="Galerie kadeřnictví" loading="lazy" />`;
-      track.appendChild(div);
-    });
-    if (photos.length < 4) track.style.animationDuration = '18s';
-  } else {
-    ['photo_1.jpg', 'photo_2.jpg', 'photo_1.jpg', 'photo_2.jpg'].forEach(src => {
-      const div = document.createElement('div');
-      div.className = 'gal-img';
-      div.innerHTML = `<img src="photos/${src}" alt="Kadeřnictví" loading="lazy" />`;
-      track.appendChild(div);
-    });
-  }
-
-  /* --- Recenze slider --- */
-  const sliderTrack = document.getElementById('sliderTrack');
-  const slides = sliderTrack.querySelectorAll('.review-slide');
-  const dots = document.getElementById('sliderDots');
-  let current = 0;
-
-  function goTo(idx) {
-    current = idx;
-    sliderTrack.style.transform = `translateX(-${idx * 100}%)`;
-    dots.querySelectorAll('.dot-btn').forEach((d, i) => d.classList.toggle('active', i === idx));
-  }
-  dots.querySelectorAll('.dot-btn').forEach((d, i) => d.addEventListener('click', () => goTo(i)));
-  if (slides.length > 1) setInterval(() => goTo((current + 1) % slides.length), 5000);
+const hd=document.getElementById('header');
+addEventListener('scroll',()=>hd.classList.toggle('scrolled',scrollY>40));
+const ham=document.getElementById('ham'),mm=document.getElementById('mm');
+ham&&ham.addEventListener('click',()=>mm.classList.toggle('open'));
+mm&&mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mm.classList.remove('open')));
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('[data-r]').forEach(el=>io.observe(el));
+const lb=document.getElementById('lb');
+document.querySelectorAll('.prom img,.cert img').forEach(img=>img.parentElement.addEventListener('click',()=>{lb.querySelector('img').src=img.src;lb.classList.add('open')}));
+lb.addEventListener('click',()=>lb.classList.remove('open'));
 </script>
-
 </body>
 </html>
