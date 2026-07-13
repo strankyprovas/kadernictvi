@@ -53,7 +53,8 @@
 
     /* HERO — editorial, light */
     #hero { min-height: 100vh; background: var(--cream); display: grid; grid-template-columns: 1.05fr 1fr; align-items: stretch; }
-    .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 8rem 4% 4rem 8%; }
+    .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 9rem 4% 4rem 8%; }
+    @media (min-width: 1025px) { .hero-left { justify-content: flex-start; padding-top: 9.5rem; } }
     .hero-eyebrow { font-size: .72rem; font-weight: 600; letter-spacing: .32em; text-transform: uppercase; color: var(--rose2); margin-bottom: 2rem; display: flex; align-items: center; gap: 1rem; opacity: 0; animation: fadeUp .9s .2s var(--ease) forwards; }
     .hero-eyebrow::before { content: ''; width: 44px; height: 1px; background: var(--rose); }
     .hero-name { font-family: 'Bodoni Moda', serif; font-size: clamp(3rem, 6vw, 5.6rem); font-weight: 500; line-height: .98; letter-spacing: -.01em; color: var(--ink); margin-bottom: 1.4rem; opacity: 0; animation: fadeUp .9s .34s var(--ease) forwards; }
@@ -263,8 +264,8 @@
   <div class="hero-left">
     <div class="hero-eyebrow">Brno · Kadeřnictví</div>
     <h1 class="hero-name">Studio Lumi</h1>
-    <p class="hero-tag">Střih, který vám sluší</p>
-    <p class="hero-sub">Střihy, barvy a styling od zkušených kadeřníků s vášní pro krásu.</p>
+    <p class="hero-tag">Profesionální péče o vaše vlasy</p>
+    <p class="hero-sub">Moderní techniky, prémiové produkty a přátelská atmosféra.</p>
     <div class="hero-btns">
       <a href="#kontakt" class="btn-dark">Objednat se</a>
       <a href="#sluzby" class="btn-line">Ceník služeb</a>
@@ -295,7 +296,7 @@
     <div data-r="right">
       <div class="eyebrow">O nás</div>
       <p class="about-quote">Správný střih promění nejen <span>vzhled</span>, ale i&nbsp;náladu.</p>
-      <p class="about-text">Jsme kadeřnictví s vášní pro vlasy a styling. Každého klienta bereme individuálně a navrhneme styl, který mu skutečně sluší. Používáme prémiové produkty a sledujeme nejnovější trendy.</p>
+      <p class="about-text">Naše kadeřnictví vzniklo z lásky ke kráse a transformaci. Věříme, že správný střih a barva dokáže proměnit nejen vzhled, ale i náladu. Přijďte se přesvědčit!</p>
       <div class="about-sign"><span class="line"></span><small>Studio Lumi · Brno</small></div>
     </div>
   </div>
